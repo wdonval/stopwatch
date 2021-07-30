@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Tab } from "@headlessui/react";
-import Timer from "@/Timer";
+import Timer from "@/components/Timer";
 
 function App() {
 	return (

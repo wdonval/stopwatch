@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useTimer } from "@/hooks/useTimer";
-import TimerControl from "@/TimerControl";
-import TimerDisplay from "@/TimerDisplay";
+import TimerControl from "@/components/TimerControl";
+import TimerDisplay from "@/components/TimerDisplay";
 
 export default function Timer() {
 	let time = 0;
