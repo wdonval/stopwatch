@@ -1,19 +1,61 @@
 import React from "react";
 
 export default function TimerDisplay({ time }) {
-	return (
-		<div className="flex items-end font-bold">
-			{time.hours != 0 && <div className="text-6xl">{time.hours}</div>}
-			{time.hours != 0 && <div className="text-6xl">:</div>}
-			{(time.minutes != 0 || time.hours != 0) && <div className="text-6xl">{time.minutes}</div>}
-			{time.minutes != 0 && <div className="text-6xl">:</div>}
-			{(time.seconds != 0 || time.minutes != 0 || time.hours != 0) && (
-				<div className="text-6xl">{time.minutes != 0 && time.seconds < 10 ? `0${time.seconds}` : time.seconds}</div>
-			)}
+	const displayMilliseconds = (time) => {
+		if (time.milliseconds == 0) {
+			return "000";
+		} else {
+			return time.milliseconds;
+		}
+	};
 
-			{time.seconds == 0 && <div className="text-6xl">0</div>}
-			{time.milliseconds != 0 && <div className="text-3xl">{time.milliseconds}</div>}
-			{time.milliseconds == 0 && <div className="text-3xl">000</div>}
+	const displaySeconds = (time) => {
+		if (time.hours != 0 || time.minutes != 0) {
+			if (time.seconds == 0) {
+				return "00";
+			} else if (time.seconds < 10) {
+				return `0${time.seconds}`;
+			} else {
+				return time.seconds;
+			}
+		} else {
+			return time.seconds;
+		}
+	};
+
+	const displayMinutes = (time) => {
+		if (time.hours != 0) {
+			if (time.minutes == 0) {
+				return "00";
+			} else if (time.minutes < 10) {
+				return `0${time.minutes}`;
+			} else {
+				return time.minutes;
+			}
+		} else {
+			if (time.minutes == 0) {
+				return;
+			} else {
+				return time.minutes;
+			}
+		}
+	};
+
+	const displayHours = (time) => {
+		if (time.hours == 0) {
+			return;
+		} else {
+			return time.hours;
+		}
+	};
+	return (
+		<div className="flex items-end justify-center font-bold gap-2 tabular-nums rounded-2xl">
+			<div className="text-6xl">{displayHours(time)}</div>
+			{time.hours != 0 && <div className="text-6xl">:</div>}
+			<div className="text-6xl">{displayMinutes(time)}</div>
+			{(time.minutes != 0 || time.hours != 0) && <div className="text-6xl">:</div>}
+			<div className="text-6xl">{displaySeconds(time)}</div>
+			<div className="text-3xl">{displayMilliseconds(time)}</div>
 		</div>
 	);
 }
