@@ -9,7 +9,7 @@ export default function Timer() {
 	const [started, setStarted] = useState(false);
 	const [max, setMax] = useState(false);
 	const [renderTime, setRenderTime] = useState(new Date().getTime());
-	const stopwatch = useTimer({ initialTime: time, countDown: true });
+	const stopwatch = useTimer({ initialTime: time });
 
 	function msToTime(duration) {
 		if (duration >= maxTime) {
@@ -25,8 +25,7 @@ export default function Timer() {
 
 	useEffect(() => {
 		const timeout = setTimeout(() => setRenderTime(new Date().getTime()), 10);
-		// time += stopwatch.getElapsedRunningTime();
-		// console.log(time);
+
 		if (stopwatch.getElapsedRunningTime() >= maxTime) {
 			pauseTimer();
 		}
@@ -43,7 +42,7 @@ export default function Timer() {
 			} else if (stopwatch.isPaused()) {
 				stopwatch.resume();
 				setStarted(true);
-			} else if (stopwatch.isRunning()) {
+			} else if (stopwatch.isRunning() || stopwatch.isStarted()) {
 				stopwatch.pause();
 				setStarted(false);
 			}
