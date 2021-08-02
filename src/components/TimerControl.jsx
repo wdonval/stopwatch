@@ -39,7 +39,7 @@ export default function TimerControl({ started, reset, toggle, save }) {
 				{started && <Pause size={26} />}
 			</button>
 			<button
-				disabled
+				disabled={!started}
 				className="flex-shrink-0 rounded-2xl shadow-lg flex items-center justify-center bg-white text-gray-900 h-16 w-16 border border-gray-100 transform active:scale-95 transition-transform duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-gray-50 disabled:active:scale-100 disabled:bg-gray-100 disabled:text-gray-500 disabled:cursor-not-allowed"
 				onClick={save}
 			>
