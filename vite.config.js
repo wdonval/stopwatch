@@ -16,7 +16,9 @@ export default defineConfig({
 			"@": path.resolve(__dirname, "src/"),
 		},
 	},
-	optimizeDeps: {
-		exclude: ["jotai"],
+	build: {
+		rollupOptions: {
+			external: ["jotai"],
+		},
 	},
 });
