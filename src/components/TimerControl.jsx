@@ -25,14 +25,14 @@ export default function TimerControl({ started, reset, toggle, save }) {
 		<div className="flex items-center justify-center gap-8">
 			<button
 				ref={resetButton}
-				className="flex-shrink-0 rounded-2xl shadow-lg flex items-center justify-center bg-white text-gray-900 h-16 w-16 border border-gray-100 transform active:scale-95 transition-transform duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-gray-50"
+				className="flex-shrink-0 rounded-2xl shadow flex items-center justify-center bg-white text-gray-900 h-16 w-16 transform active:scale-95 transition-transform duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-gray-50"
 				onClick={reset}
 			>
 				<ArrowCounterClockwise size={26} />
 			</button>
 			<button
 				ref={startButton}
-				className="flex-shrink-0 rounded-2xl shadow-lg flex items-center justify-center bg-primary text-white h-16 w-16 transform active:scale-95 transition-transform duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-gray-50"
+				className="flex-shrink-0 rounded-2xl shadow flex items-center justify-center bg-primary text-white h-16 w-16 transform active:scale-95 transition-transform duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-gray-50"
 				onClick={toggle}
 			>
 				{!started && <Play size={26} />}
@@ -40,7 +40,7 @@ export default function TimerControl({ started, reset, toggle, save }) {
 			</button>
 			<button
 				disabled={!started}
-				className="flex-shrink-0 rounded-2xl shadow-lg flex items-center justify-center bg-white text-gray-900 h-16 w-16 border border-gray-100 transform active:scale-95 transition-transform duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-gray-50 disabled:active:scale-100 disabled:bg-gray-100 disabled:text-gray-500 disabled:cursor-not-allowed"
+				className="flex-shrink-0 rounded-2xl shadow flex items-center justify-center bg-white text-gray-900 h-16 w-16 transform active:scale-95 transition-transform duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-gray-50 disabled:active:scale-100 disabled:bg-gray-100 disabled:text-gray-500 disabled:cursor-default"
 				onClick={save}
 			>
 				<FlagBanner size={26} />
