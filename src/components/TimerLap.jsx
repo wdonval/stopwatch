@@ -14,7 +14,7 @@ export default function TimerLap({ lap, previousLap, index }) {
 	};
 
 	return (
-		<div className="rounded-xl shadow-lg bg-white py-2 px-4 flex justify-between tabular-nums font-semibold gap-8">
+		<div className="rounded-xl shadow bg-white py-2 px-4 flex justify-between tabular-nums font-semibold gap-8">
 			<div className="grid grid-cols-3 w-full">
 				<div className="flex tracking-wider items-center">
 					<div>{displayHoursFull(lap)}:</div>
@@ -30,7 +30,7 @@ export default function TimerLap({ lap, previousLap, index }) {
 				</div>
 				<button
 					onClick={() => remove(index)}
-					className="justify-self-end flex justify-center items-center p-2 bg-gray-100 rounded-lg text-gray-900 hover:bg-gray-200 transition-colors duration-150"
+					className="justify-self-end flex justify-center items-center p-2 bg-gray-100 rounded-lg text-gray-600 hover:bg-gray-200 transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-white"
 				>
 					<Trash size={24} />
 				</button>
