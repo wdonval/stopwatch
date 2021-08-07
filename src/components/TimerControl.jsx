@@ -14,10 +14,12 @@ export default function TimerControl({ started, reset, toggle, save }) {
 	}, []);
 
 	const handleInput = (event) => {
-		if (event.code === "Enter" || event.code === "Space") {
-			startButton.current.click();
-		} else if (event.code === "Backspace" || event.code === "Delete") {
-			resetButton.current.click();
+		if (event.target === document.body) {
+			if (event.code === "Enter" || event.code === "Space") {
+				startButton.current.click();
+			} else if (event.code === "Backspace" || event.code === "Delete") {
+				resetButton.current.click();
+			}
 		}
 	};
 

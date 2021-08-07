@@ -26,7 +26,6 @@ export default function Timer() {
 
 	useEffect(() => {
 		const timeout = setTimeout(() => setRenderTime(new Date().getTime()), 10);
-
 		if (stopwatch.getElapsedRunningTime() >= maxTime) {
 			pauseTimer();
 		}
@@ -69,7 +68,7 @@ export default function Timer() {
 	};
 
 	return (
-		<div className="max-w-xl w-full mx-auto text-gray-900">
+		<div className="max-w-xl w-full mx-auto text-gray-900 z-50">
 			<TimerDisplay pause={pauseTimer} time={msToTime(stopwatch.getElapsedRunningTime(), maxTime)} />
 			<TimerControl
 				reset={resetTimer}

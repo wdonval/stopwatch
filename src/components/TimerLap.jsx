@@ -30,7 +30,7 @@ export default function TimerLap({ lap, previousLap, index }) {
 				</div>
 				<button
 					onClick={() => remove(index)}
-					className="justify-self-end flex justify-center items-center p-2 bg-gray-100 rounded-lg text-gray-600 hover:bg-gray-200 transition-colors duration-150"
+					className="justify-self-end flex justify-center items-center p-2 bg-gray-100 rounded-lg text-gray-600 hover:bg-gray-200 transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-white"
 				>
 					<Trash size={24} />
 				</button>
