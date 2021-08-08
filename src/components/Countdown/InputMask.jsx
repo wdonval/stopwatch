@@ -7,9 +7,9 @@ String.prototype.replaceBetween = function (start, end, what) {
 
 export default function InputMask({ onChange }) {
 	const inputRef = useRef(null);
-	const valueTemplate = "000000";
+	const valueTemplate = "001000";
 	const [value, setValue] = useState(valueTemplate);
-	const [valueCount, setValueCount] = useState("");
+	const [valueCount, setValueCount] = useState("1000");
 	const maxValueCount = 6;
 
 	const toString = (value) => {

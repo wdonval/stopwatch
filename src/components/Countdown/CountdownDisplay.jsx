@@ -9,7 +9,7 @@ export default function CountdownDisplay({ time }) {
 			{displayMinutes(time) && <div className="text-6xl">{displayMinutes(time)}</div>}
 			{(time.minutes != 0 || time.hours != 0) && <div className="text-6xl">:</div>}
 			<div className="text-6xl">{displaySeconds(time)}</div>
-			<div className="text-3xl">{displayMilliseconds(time)}</div>
+			{/* <div className="text-3xl">{displayMilliseconds(time)}</div> */}
 		</div>
 	);
 }

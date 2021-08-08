@@ -8,13 +8,13 @@ import { useAtom } from "jotai";
 import { maxTimeAtom } from "@/components/Stopwatch/Timer";
 
 export default function Countdown() {
-	const [date, setDate] = useState(Date.now());
+	const [date, setDate] = useState(new Date(Date.now()));
 	const countdown = useRef(null);
 	const [started, setStarted] = useState(false);
 	const maxTime = useAtom(maxTimeAtom);
 
 	const renderer = ({ total, completed }) => {
-		return <CountdownDisplay time={msToTime(total, 9999999999999)} />;
+		return <CountdownDisplay time={msToTime(total, maxTime)} />;
 	};
 
 	const startOrStop = () => {
@@ -43,9 +43,7 @@ export default function Countdown() {
 				ref={countdown}
 				date={date}
 				controlled={false}
-				intervalDelay={0}
 				autoStart={false}
-				precision={3}
 				renderer={renderer}
 				onPause={() => setStarted(false)}
 				onStop={() => setStarted(false)}
@@ -53,7 +51,7 @@ export default function Countdown() {
 			/>
 			<CountdownControl reset={resetTimer} toggle={startOrStop} started={started} />
 			<div className="mt-8 flex justify-center">
-				<InputMask onChange={(value) => setDate(Date.now() + value)} />
+				<InputMask onChange={(value) => setDate(new Date(Date.now() + value))} />
 			</div>
 		</div>
 	);
