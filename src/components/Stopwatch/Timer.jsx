@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useTimer } from "@/hooks/useTimer";
-import TimerControl from "@/components/TimerControl";
-import TimerDisplay from "@/components/TimerDisplay";
-import TimerLaps from "@/components/TimerLaps";
+import TimerControl from "@/components/Stopwatch/TimerControl";
+import TimerDisplay from "@/components/Stopwatch/TimerDisplay";
+import TimerLaps from "@/components/Stopwatch/TimerLaps";
 import { atom, useAtom } from "jotai";
 import { msToTime } from "@/mixins";
 
@@ -68,7 +68,7 @@ export default function Timer() {
 	};
 
 	return (
-		<div className="max-w-xl w-full mx-auto text-gray-900 z-50">
+		<div className="max-w-xl w-full mx-auto text-gray-900 dark:text-gray-100 z-50 transition-colors duration-150">
 			<TimerDisplay pause={pauseTimer} time={msToTime(stopwatch.getElapsedRunningTime(), maxTime)} />
 			<TimerControl
 				reset={resetTimer}

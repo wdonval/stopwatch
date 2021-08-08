@@ -1,9 +1,9 @@
 import React from "react";
-import TimerLap from "@/components/TimerLap";
+import TimerLap from "@/components/Stopwatch/TimerLap";
 import { FileArrowDown } from "phosphor-react";
 import Tooltip from "@/components/Tooltip";
 import { useAtom } from "jotai";
-import { maxTimeAtom } from "@/components/Timer";
+import { maxTimeAtom } from "@/components/Stopwatch/Timer";
 import { displayHoursFull, displayMinutesFull, displaySecondsFull, msToTime } from "@/mixins";
 
 const defaultLap = { hours: 0, minutes: 0, seconds: 0, milliseconds: "000", duration: 0 };
@@ -42,13 +42,13 @@ export default function TimerLaps({ laps }) {
 	return (
 		!!laps.length && (
 			<div className="py-12">
-				<div className="grid grid-cols-3 w-full px-4 py-2 place-content-end items-end">
-					<span className="text-sm uppercase">Durée</span>
-					<span className="text-sm uppercase">Delta</span>
-					<Tooltip content={"Exporter"}>
+				<div className="flex xxs:justify-between justify-end sm:grid sm:grid-cols-3 w-full px-4 py-2 place-content-end items-end">
+					<span className="xxs:inline-block hidden text-sm uppercase">Durée</span>
+					<span className="xxs:inline-block hidden text-sm uppercase">Delta</span>
+					<Tooltip placement="top" content={"Exporter"}>
 						<button
 							onClick={download}
-							className="relative justify-self-end flex justify-center items-center p-2 bg-white rounded-lg text-gray-600 shadow transform active:scale-95 transition-transform duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-gray-50"
+							className="relative justify-self-end flex justify-center items-center p-2 bg-white dark:bg-gray-800 rounded-lg text-gray-600 dark:text-gray-300 shadow transform active:scale-95 transition-all duration-150 outline-none focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-gray-50 dark:focus-visible:ring-offset-gray-900"
 						>
 							<FileArrowDown size={24} />
 						</button>
