@@ -10,6 +10,13 @@ export const msToTime = (duration, maxTime) => {
 	return { hours, minutes, seconds, milliseconds, duration };
 };
 
+export const timeToMs = (hours, minutes, seconds) => {
+	let ms = hours * 60 * 60 * 1000;
+	ms += minutes * 60 * 1000;
+	ms += seconds * 1000;
+	return ms;
+};
+
 export const displayMilliseconds = (time) => {
 	if (time.milliseconds == 0) {
 		return "000";

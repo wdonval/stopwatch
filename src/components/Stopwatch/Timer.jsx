@@ -68,7 +68,7 @@ export default function Timer() {
 	};
 
 	return (
-		<div className="max-w-xl w-full mx-auto text-gray-900 dark:text-gray-100 z-50 transition-colors duration-150">
+		<div className="max-w-xl w-full mx-auto text-gray-900 dark:text-gray-100 z-50 transition-colors duration-150 mt-8">
 			<TimerDisplay pause={pauseTimer} time={msToTime(stopwatch.getElapsedRunningTime(), maxTime)} />
 			<TimerControl
 				reset={resetTimer}

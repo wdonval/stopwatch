@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
 import Timer from "@/components/Stopwatch/Timer";
+import Countdown from "@/components/Countdown/Countdown";
 import Navbar from "@/components/Navbar";
-import { BrowserRouter as Router, Switch, Route, useHistory } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Timer as TimerIcon, HourglassLow } from "phosphor-react";
 import Toggle from "@/components/Toggle";
 import Tooltip from "@/components/Tooltip";
 
 const routes = [
 	{ path: "/", label: "Chronomètre", component: <Timer />, icon: <TimerIcon size={24} /> },
-	{ path: "/countdown", label: "Minuteur", component: <div>Test</div>, icon: <HourglassLow size={24} /> },
+	{ path: "/countdown", label: "Minuteur", component: <Countdown />, icon: <HourglassLow size={24} /> },
 ];
 
 function App() {
