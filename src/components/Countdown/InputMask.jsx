@@ -34,7 +34,7 @@ export default function InputMask({ onChange }) {
 
 	const handleInput = (event) => {
 		const inputValue = event.target.value;
-		if (!isNaN(inputValue) && inputValue != 0 && valueCount.length < maxValueCount) {
+		if (!isNaN(inputValue) && (inputValue != 0 || valueCount != 0) && valueCount.length < maxValueCount) {
 			setValue(`${valueCount}${inputValue}`.padStart(maxValueCount, "0"));
 			setValueCount(`${valueCount}${inputValue}`);
 		}
@@ -47,7 +47,7 @@ export default function InputMask({ onChange }) {
 	};
 
 	const removeAll = () => {
-		const newValue = "0";
+		const newValue = "";
 		setValue(newValue.padStart(maxValueCount, "0"));
 		setValueCount(newValue);
 	};
