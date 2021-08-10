@@ -71,7 +71,7 @@ export default function InputMask({ onChange }) {
 		<div className="inline-block relative w-auto">
 			<input
 				ref={inputRef}
-				className="bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 select-all text-transparent text-center text-xl tabular-nums w-48 px-4 py-3 caret-transparent rounded-xl outline-none focus:outline-none shadow-sm focus:ring-primary focus:border-primary dark:focus:border-primary block border-gray-300 dark:border-gray-700"
+				className="transition-colors duration-150 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 select-all text-transparent text-center tabular-nums w-56 px-4 h-16 caret-transparent rounded-xl outline-none focus:outline-none shadow-sm focus:ring-primary focus:border-primary dark:focus:border-primary block border-gray-300 dark:border-gray-700"
 				type="text"
 				value=""
 				onInput={handleInput}
@@ -79,7 +79,7 @@ export default function InputMask({ onChange }) {
 				inputMode="numeric"
 			/>
 			<div
-				className="text-xl absolute tabular-nums inset-0 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full text-center font-medium pointer-events-none"
+				className="text-2xl absolute tabular-nums inset-0 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full text-center font-medium pointer-events-none"
 				dangerouslySetInnerHTML={{
 					__html: toString(value),
 				}}

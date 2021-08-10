@@ -1,9 +1,10 @@
 import React, { useEffect, useRef } from "react";
-import { Play, Pause, ArrowCounterClockwise, FlagBanner } from "phosphor-react";
+import { Play, Pause, ArrowCounterClockwise } from "phosphor-react";
 
-export default function TimerControl({ started, reset, toggle, save }) {
+export default function TimerControl({ started, reset, toggle, add }) {
 	const startButton = useRef(null);
 	const resetButton = useRef(null);
+	const addButton = useRef(null);
 
 	useEffect(() => {
 		document.addEventListener("keyup", (event) => handleInput(event));
@@ -15,10 +16,13 @@ export default function TimerControl({ started, reset, toggle, save }) {
 
 	const handleInput = (event) => {
 		if (event.target === document.body) {
-			if (event.code === "Enter" || event.code === "Space") {
+			console.log(event.key);
+			if (event.code === "Enter" || event.code === "Space" || event.key === "Enter" || event.key === "Space") {
 				startButton.current.click();
-			} else if (event.code === "Backspace" || event.code === "Delete") {
+			} else if (event.code === "Backspace" || event.code === "Delete" || event.key === "Backspace" || event.key === "Delete") {
 				resetButton.current.click();
+			} else if (event.key === "+") {
+				addButton.current.click();
 			}
 		}
 	};
@@ -39,6 +43,13 @@ export default function TimerControl({ started, reset, toggle, save }) {
 			>
 				{!started && <Play size={26} />}
 				{started && <Pause size={26} />}
+			</button>
+			<button
+				ref={addButton}
+				className="flex-shrink-0 rounded-2xl shadow flex items-center justify-center bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 h-16 w-16 transform active:scale-95 transition-all duration-150 outline-none focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-gray-50 dark:focus-visible:ring-offset-gray-900"
+				onClick={add}
+			>
+				<span className="tracking-wider">+1:00</span>
 			</button>
 		</div>
 	);

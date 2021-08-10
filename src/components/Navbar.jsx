@@ -3,8 +3,8 @@ import { NavLink } from "react-router-dom";
 
 export default function Navbar({ routes }) {
 	return (
-		<div className="z-20 sm:static bg-gray-100 dark:bg-gray-800 sm:bg-transparent sm:dark:bg-transparent fixed bottom-0 left-0 right-0 flex justify-center text-gray-600 dark:text-gray-400 transition-colors duration-150">
-			<nav className="shadow-none sm:shadow-inner flex flex-nowrap bg-gray-100 dark:bg-gray-800 mx-auto justify-center gap-1.5 relative p-1.5 rounded-xl xs:w-auto w-full transition-colors duration-150">
+		<div className="z-20 sm:static bg-gray-100 dark:bg-gray-800 sm:bg-transparent sm:dark:bg-transparent fixed bottom-0 left-0 right-0 flex justify-center transition-colors duration-150">
+			<nav className="shadow-none sm:shadow-inner flex flex-nowrap bg-gray-100 dark:bg-gray-800 mx-auto justify-center gap-1.5 relative p-1.5 rounded-xl xs:w-auto w-full transition-colors duration-150 text-gray-600 dark:text-gray-400">
 				{routes.map((route, index) => (
 					<NavLink
 						exact

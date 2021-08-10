@@ -10,6 +10,15 @@ export const msToTime = (duration, maxTime) => {
 	return { hours, minutes, seconds, milliseconds, duration };
 };
 
+export const msToTimeString = (duration) => {
+	let milliseconds = parseInt(duration % 1000).toLocaleString("fr-FR", { minimumIntegerDigits: 3 }),
+		seconds = Math.floor((duration / 1000) % 60).toLocaleString("fr-FR", { minimumIntegerDigits: 2 }),
+		minutes = Math.floor((duration / (1000 * 60)) % 60).toLocaleString("fr-FR", { minimumIntegerDigits: 2 }),
+		hours = Math.floor(duration / (1000 * 60 * 60)).toLocaleString("fr-FR", { minimumIntegerDigits: 2 });
+
+	return { hours, minutes, seconds, milliseconds, duration };
+};
+
 export const timeToMs = (hours, minutes, seconds) => {
 	let ms = hours * 60 * 60 * 1000;
 	ms += minutes * 60 * 1000;
