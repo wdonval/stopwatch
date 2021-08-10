@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { timeToMs } from "@/mixins";
+import { X } from "phosphor-react";
 
 String.prototype.replaceBetween = function (start, end, what) {
 	return this.substring(0, start) + what + this.substring(end);
@@ -17,7 +18,7 @@ export default function InputMask({ onChange }) {
 		const array = value.match(/.{2}/g);
 		let string = "";
 		array.forEach((item, index) => {
-			string = string + item + `<span class="text-sm font-normal">${suffixes[index]}</span>` + " ";
+			string = string + item + `<span class="ml-0.5 text-sm font-normal">${suffixes[index]}</span>` + " ";
 		});
 		return string;
 	};
@@ -71,7 +72,7 @@ export default function InputMask({ onChange }) {
 		<div className="inline-block relative w-auto">
 			<input
 				ref={inputRef}
-				className="transition-colors duration-150 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 select-all text-transparent text-center tabular-nums w-56 px-4 h-16 caret-transparent rounded-xl outline-none focus:outline-none shadow-sm focus:ring-primary focus:border-primary dark:focus:border-primary block border-gray-300 dark:border-gray-700"
+				className="transition-colors duration-150 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 select-all text-transparent text-center tabular-nums w-64 text-2xl px-4 pr-16 py-3 caret-transparent rounded-xl outline-none focus:outline-none shadow-sm focus:ring-primary focus:border-primary dark:focus:border-primary block border-gray-300 dark:border-gray-700"
 				type="text"
 				value=""
 				onInput={handleInput}
@@ -79,11 +80,17 @@ export default function InputMask({ onChange }) {
 				inputMode="numeric"
 			/>
 			<div
-				className="text-2xl absolute tabular-nums inset-0 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full text-center font-medium pointer-events-none"
+				className="px-4 pr-16 text-2xl absolute tabular-nums inset-0 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full text-center font-medium pointer-events-none"
 				dangerouslySetInnerHTML={{
 					__html: toString(value),
 				}}
 			></div>
+			<button
+				onClick={removeAll}
+				className="text-gray-600 dark:text-gray-300 bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 transition-colors duration-150 rounded-lg h-10 w-10 flex justify-center items-center absolute right-2.5 top-1/2 transform -translate-y-1/2"
+			>
+				<X size={24} />
+			</button>
 		</div>
 	);
 }
