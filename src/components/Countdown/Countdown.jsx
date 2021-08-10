@@ -37,19 +37,18 @@ export default function Countdown() {
 		const api = countdown.current.getApi();
 		api.stop();
 		setStarted(false);
-		const now = Date.now();
-		setDate(now + inputValue);
+		setDate(Date.now() + inputValue);
 		setValue(inputValue);
 	};
 
 	const addMinute = () => {
 		setDate(Date.now() + value + 60000);
+		setValue(value + 60000);
 	};
 
 	const handleValue = (value) => {
 		setInputValue(value);
-		const now = Date.now();
-		setDate(now + value);
+		setDate(Date.now() + value);
 	};
 
 	useEffect(() => {
